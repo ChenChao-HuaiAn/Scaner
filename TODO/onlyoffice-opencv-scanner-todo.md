@@ -11,7 +11,7 @@
   - 微调需求：开发自定义插件集成扫描功能
 
 ### 2. OpenCV文档扫描项目
-- [ ] **Document-Scanner-OpenCV** - https://github.com/abhishek305/Document-Scanner-OpenCV
+- [ ] **document-scanner** - https://github.com/vipul-sharma20/document-scanner
   - 复用点：完整的文档边缘检测、透视校正、图像增强算法
   - 微调需求：适配Web服务接口、优化性能、添加PDF生成功能
 
@@ -20,11 +20,11 @@
   - 微调需求：封装文档扫描专用函数
 
 ### 3. 移动端扫描项目
-- [ ] **react-native-document-scanner-plus** - https://github.com/Michaelvilleneuve/react-native-document-scanner-plus
+- [ ] **react-native-document-scanner** - https://github.com/Michaelvilleneuve/react-native-document-scanner
   - 复用点：React Native文档扫描组件、边缘检测、自动捕获
   - 微调需求：适配OnlyOffice集成、添加多页支持
 
-- [ ] **capacitor-plugin-document-scanner** - https://github.com/capacitor-community/document-scanner
+- [ ] **capacitor-document-scanner** - https://github.com/WebsiteBeaver/capacitor-document-scanner
   - 复用点：跨平台文档扫描插件（iOS/Android）
   - 微调需求：自定义UI、集成到OnlyOffice工作流
 
@@ -42,27 +42,27 @@
 ### 第一阶段：环境搭建和基础验证 (1-2周)
 
 #### OnlyOffice环境搭建
-- [ ] 克隆OnlyOffice/DocumentServer仓库
-- [ ] 搭建本地开发环境（Docker）
-- [ ] 验证基本文档编辑功能
-- [ ] 熟悉OnlyOffice插件开发文档
+- [x] 克隆OnlyOffice/DocumentServer仓库
+- [x] 搭建本地开发环境（Docker）
+- [x] 验证基本文档编辑功能
+- [x] 熟悉OnlyOffice插件开发文档
 
 #### OpenCV文档扫描验证
-- [ ] 克隆Document-Scanner-OpenCV项目
-- [ ] 在本地运行Python文档扫描示例
+- [ ] 克隆document-scanner项目
+- [ ] 在本地运行Python文档扫描示例（使用GitHub现成的document-scanner项目）
 - [ ] 验证边缘检测和透视校正效果
 - [ ] 测试不同光照条件下的扫描效果
 
 #### 移动端原型验证
 - [ ] 创建React Native测试项目
-- [ ] 集成react-native-document-scanner-plus
+- [ ] 集成react-native-document-scanner
 - [ ] 验证移动端文档扫描功能
 - [ ] 测试在不同设备上的兼容性
 
 ### 第二阶段：核心功能开发 (2-3周)
 
 #### OpenCV服务开发
-- [ ] 基于Document-Scanner-OpenCV创建Web服务
+- [ ] 基于document-scanner创建Web服务
 - [ ] 实现REST API接口（上传、处理、下载）
 - [ ] 添加批量处理和队列管理
 - [ ] 优化图像处理性能（多线程、缓存）
@@ -76,7 +76,7 @@
 - [ ] 添加文件上传和插入功能
 
 #### 移动端应用开发
-- [ ] 基于react-native-document-scanner-plus创建应用
+- [ ] 基于react-native-document-scanner创建应用
 - [ ] 自定义扫描界面UI
 - [ ] 实现多页文档管理
 - [ ] 添加图像预览和编辑功能

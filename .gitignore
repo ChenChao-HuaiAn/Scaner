@@ -4,6 +4,10 @@
 # 但不忽略 .gitignore 文件本身
 !.gitignore
 
+# 放开 .roo 目录及其中的所有文件（项目规则和配置）
+!.roo/
+!.roo/**
+
 # 放开 plans 目录及其中的所有文件
 !plans/
 !plans/**
@@ -11,3 +15,9 @@
 # 放开 TODO 目录及其中的所有文件
 !TODO/
 !TODO/**
+
+# 放开根目录的重要文档文件
+!更新日志.md
+!memory.md
+!lessons.md
+
