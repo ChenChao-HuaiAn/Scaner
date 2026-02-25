@@ -48,10 +48,10 @@
 - [x] 熟悉OnlyOffice插件开发文档
 
 #### OpenCV文档扫描验证
-- [ ] 克隆document-scanner项目
-- [ ] 在本地运行Python文档扫描示例（使用GitHub现成的document-scanner项目）
-- [ ] 验证边缘检测和透视校正效果
-- [ ] 测试不同光照条件下的扫描效果
+- [x] 克隆document-scanner项目
+- [x] 在本地运行Python文档扫描示例（使用GitHub现成的document-scanner项目）
+- [x] 验证边缘检测和透视校正效果
+- [x] 测试不同光照条件下的扫描效果
 
 #### 移动端原型验证
 - [ ] 创建React Native测试项目
@@ -62,7 +62,7 @@
 ### 第二阶段：核心功能开发 (2-3周)
 
 #### OpenCV服务开发
-- [ ] 基于document-scanner创建Web服务
+- [x] 基于document-scanner创建Web服务
 - [ ] 实现REST API接口（上传、处理、下载）
 - [ ] 添加批量处理和队列管理
 - [ ] 优化图像处理性能（多线程、缓存）

@@ -12,6 +12,10 @@
 !plans/
 !plans/**
 
+# 放开 Source 目录及其中的所有文件
+!Source/
+!Source/**
+
 # 放开 TODO 目录及其中的所有文件
 !TODO/
 !TODO/**
