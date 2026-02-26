@@ -55,6 +55,16 @@ npx react-native run-android
 npx react-native run-ios
 ```
 
+## 测试指南
+
+详细的真实设备测试指南请参阅 [`TESTING-GUIDE.md`](TESTING-GUIDE.md) 文件，其中包含了：
+
+- Android开发模式测试步骤
+- APK生成和安装方法
+- iOS设备测试配置
+- 常见问题解决方案
+- 调试技巧和性能监控
+
 ## 项目结构
 
 ```
