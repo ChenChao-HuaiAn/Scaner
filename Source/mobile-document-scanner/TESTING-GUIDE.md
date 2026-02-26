@@ -14,6 +14,11 @@
 
 2. **启动开发服务器**：
    ```bash
+   # Windows PowerShell
+   cd Source/mobile-document-scanner
+   npx react-native start
+   
+   # macOS/Linux
    cd Source/mobile-document-scanner
    npx react-native start
    ```
@@ -21,6 +26,10 @@
 3. **安装并运行应用**：
    ```bash
    # 在另一个终端窗口执行
+   # Windows PowerShell
+   npx react-native run-android
+   
+   # macOS/Linux
    npx react-native run-android
    ```
 
@@ -36,6 +45,11 @@
 **步骤**：
 1. **生成调试APK**（快速测试）：
    ```bash
+   # Windows PowerShell
+   cd Source/mobile-document-scanner/android
+   .\gradlew.bat assembleDebug
+   
+   # macOS/Linux
    cd Source/mobile-document-scanner/android
    ./gradlew assembleDebug
    ```
@@ -50,7 +64,10 @@
    # 配置 android/gradle.properties 文件添加密钥信息
    
    # 生成发布APK
-   cd android
+   # Windows PowerShell
+   .\gradlew.bat assembleRelease
+   
+   # macOS/Linux
    ./gradlew assembleRelease
    ```
    APK位置：`android/app/build/outputs/apk/release/app-release.apk`
