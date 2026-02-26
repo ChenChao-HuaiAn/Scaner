@@ -18,6 +18,23 @@ ios/Pods
 *.xcodeproj/project.xcworkspace
 *.xcodeproj/xcuserdata
 
+# Android Studio
+.idea/
+*.iml
+.gradle/
+local.properties
+captures/
+.externalNativeBuild
+.cxx/
+android/.gradle/
+android/captures/
+android/.idea/
+
+# Gradle
+.gradle
+gradle-app.setting
+!gradle-wrapper.jar
+
 # Build artifacts
 build/
 dist/
