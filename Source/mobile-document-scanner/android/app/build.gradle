@@ -34,5 +34,4 @@ dependencies {
     
     // react-native-document-scanner
     implementation project(':react-native-document-scanner')
-    implementation project(':openCVLibrary310')
 }

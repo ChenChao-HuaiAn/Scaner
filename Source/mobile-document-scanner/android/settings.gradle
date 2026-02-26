@@ -1,7 +1,11 @@
 rootProject.name = 'mobileDocumentScanner'
 
 include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
 
+// react-native-document-scanner
+include ':react-native-document-scanner'
+project(':react-native-document-scanner').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-document-scanner/android')
+
+// OpenCV
 include ':openCVLibrary310'
 project(':openCVLibrary310').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-document-scanner/android/openCVLibrary310')
