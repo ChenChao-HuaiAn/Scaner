@@ -8,6 +8,10 @@
 !.roo/
 !.roo/**
 
+# 放开 memory_manager 目录及其中的所有文件
+!memory_manager/
+!memory_manager/**
+
 # 放开 plans 目录及其中的所有文件
 !plans/
 !plans/**

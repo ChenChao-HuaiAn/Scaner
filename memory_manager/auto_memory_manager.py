@@ -61,15 +61,15 @@ class MemoryManager:
         
         # 如果文件不存在或为空，创建标题
         if not existing_content.strip():
-            full_content = "# 任务完成总结记录\n\n" + new_record
+            full_content = "# 项目进展记忆\n\n" + new_record
         else:
             # 移除可能存在的标题行，只保留记录部分
             lines = existing_content.split('\n')
-            if lines and lines[0].strip() == "# 任务完成总结记录":
+            if lines and lines[0].strip() == "# 项目进展记忆":
                 content_without_title = '\n'.join(lines[2:])  # 跳过标题和空行
-                full_content = "# 任务完成总结记录\n\n" + new_record + content_without_title
+                full_content = "# 项目进展记忆\n\n" + new_record + content_without_title
             else:
-                full_content = "# 任务完成总结记录\n\n" + new_record + existing_content
+                full_content = "# 项目进展记忆\n\n" + new_record + existing_content
         
         # 检查记录数量并清理
         final_content = self._manage_record_count(full_content)
@@ -78,10 +78,10 @@ class MemoryManager:
         with open(self.memory_file_path, 'w', encoding='utf-8') as f:
             f.write(final_content)
     
-    def _generate_task_record(self, task_title: str, task_content: str, 
+    def _generate_task_record(self, task_title: str, task_content: str,
                              completed_work: List[str], key_achievements: str) -> str:
         """
-        生成标准化的任务记录
+        生成标准化的任务记录 - 适配当前项目格式
         
         Args:
             task_title (str): 任务标题
@@ -94,40 +94,22 @@ class MemoryManager:
         """
         current_date = datetime.now().strftime("%Y-%m-%d")
         
-        # 获取下一个序号
-        next_number = self._get_next_task_number()
+        # 构建记录字符串 - 使用当前项目格式
+        record = f"## {current_date} {task_title}\n"
+        record += f"{task_content}\n\n"
         
-        # 构建记录字符串
-        record = f"## {next_number}. {task_title} ({current_date})\n"
-        record += f"- **任务内容**: {task_content}\n"
-        record += "- **完成工作**:\n"
-        for work in completed_work:
-            record += f"  - {work}\n"
-        record += f"- **关键成果**: {key_achievements}\n\n"
+        # 添加完成工作列表
+        if completed_work:
+            record += "**完成工作**:\n"
+            for work in completed_work:
+                record += f"- {work}\n"
+            record += "\n"
+        
+        # 添加关键成果
+        if key_achievements:
+            record += f"**关键成果**: {key_achievements}\n\n"
         
         return record
-    
-    def _get_next_task_number(self) -> int:
-        """
-        获取下一个任务序号
-        
-        Returns:
-            int: 下一个任务的序号
-        """
-        try:
-            with open(self.memory_file_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            # 使用正则表达式匹配所有任务序号
-            pattern = r'## (\d+)\.'
-            matches = re.findall(pattern, content)
-            if matches:
-                numbers = [int(num) for num in matches]
-                return max(numbers) + 1
-            else:
-                return 1
-        except FileNotFoundError:
-            return 1
     
     def _read_existing_content(self) -> str:
         """
@@ -160,7 +142,7 @@ class MemoryManager:
         # 找到所有任务记录的起始位置
         task_starts = []
         for i, line in enumerate(lines):
-            if line.startswith('## ') and re.match(r'## \d+\.', line):
+            if line.startswith('## ') and re.match(r'## \d{4}-\d{2}-\d{2}', line):
                 task_starts.append(i)
         
         # 如果没有找到任何任务记录，直接返回
@@ -179,11 +161,11 @@ class MemoryManager:
         # 构建新的内容
         new_lines = []
         # 添加标题部分（如果存在）
-        if lines and lines[0].strip() == "# 任务完成总结记录":
-            new_lines.extend(lines[:2])  # "# 任务完成总结记录\n\n"
+        if lines and lines[0].strip() == "# 项目进展记忆":
+            new_lines.extend(lines[:2])  # "# 项目进展记忆\n\n"
         else:
             # 如果没有标题，添加标题
-            new_lines.extend(["# 任务完成总结记录", ""])
+            new_lines.extend(["# 项目进展记忆", ""])
         
         # 找到所有任务记录的结束位置
         task_ends = []
