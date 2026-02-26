@@ -154,3 +154,19 @@ react-native-live-detect-edges@0.3.1 使用了 Fabric 架构（React Native 0.83
 2. 优先选择支持 Paper 架构或同时支持两种架构的库
 3. 在集成新库前，先在小型测试项目中验证兼容性
 4. 建立版本兼容性检查清单，在项目开始时就验证所有依赖的兼容性
+
+## 错误描述
+JDK 21与Android Gradle Plugin 7.4.2存在兼容性问题，导致构建失败。同时，多个第三方库版本选择不当，导致各种兼容性问题。
+
+## 错误原因
+1. JDK 21使用了新的模块系统，与Android SDK的core-for-system-modules.jar不兼容
+2. CameraX 1.5.2需要Android API 35和Gradle 8.6.0，但项目使用的是API 34和Gradle 7.4.2
+3. OpenCV和React Native都包含libc++_shared.so，导致Native库冲突
+4. react-native-screens 4.24.0与React Native 0.73存在类型定义不兼容问题
+
+## 改进措施
+1. 在项目开始时确认JDK版本兼容性，React Native 0.73推荐使用JDK 11
+2. 选择第三方库时，要仔细检查其与当前项目依赖的兼容性矩阵
+3. 对于CameraX等Android官方库，要确保版本与compileSdkVersion和Gradle插件版本匹配
+4. 在集成多个Native库时，要考虑可能的符号冲突，提前配置packagingOptions
+5. 建立完整的依赖兼容性验证流程，在项目初期就测试所有关键依赖的构建

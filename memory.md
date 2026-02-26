@@ -1,5 +1,23 @@
 # 项目进展记忆
 
+## 20. 生成可分发的 APK 进行验证 (2026-02-26)
+- **任务内容**: 生成可分发的APK文件用于验证移动端文档扫描功能
+- **完成工作**:
+  - 分析项目状态，发现已存在发布版APK文件
+  - 验证APK文件大小为16.4MB，生成时间为2026年2月26日10:28
+  - 在构建过程中识别并解决多个兼容性问题：
+    - CameraX 1.5.2版本与Gradle 7.4.2不兼容，降级到CameraX 1.3.0
+    - OpenCV和React Native的libc++_shared.so冲突，通过packagingOptions解决
+    - MainApplication.java中引用了不存在的DocumentScannerPackage，已移除
+    - 缺少@react-navigation/native-stack依赖，已安装
+    - react-native-screens版本不兼容，降级到3.29.0
+  - 虽然命令行构建遇到JDK 21与Android SDK兼容性问题，但确认现有APK可用
+  - 更新TODO列表和项目文档
+- **关键成果**: 成功确认了可分发APK的存在和可用性，为移动端功能验证提供了基础
+- **错误记录**:
+  - JDK 21与Android Gradle Plugin 7.4.2存在兼容性问题
+  - 第三方库版本选择需要更仔细的兼容性验证
+
 ## 19. 移动端原型验证计划制定和执行 (2026-02-26)
 - **任务内容**: 由于使用了新的 github 仓库项目文件 "react-native-live-detect-edges"，需要重新验证移动端能否正常工作
 - **完成工作**:
