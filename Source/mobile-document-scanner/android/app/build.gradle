@@ -34,8 +34,19 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     
     // React Native
-    implementation 'com.facebook.react:react-native:+'
+    implementation 'com.facebook.react:react-android'
     
-    // react-native-document-scanner
-    implementation project(':react-native-document-scanner')
+    // react-native-live-detect-edges
+    implementation project(':react-native-live-detect-edges')
+    
+    // CameraX dependencies (required by react-native-live-detect-edges)
+    def camerax_version = "1.5.2"
+    implementation "androidx.camera:camera-core:${camerax_version}"
+    implementation "androidx.camera:camera-camera2:${camerax_version}"
+    implementation "androidx.camera:camera-lifecycle:${camerax_version}"
+    implementation "androidx.camera:camera-view:${camerax_version}"
+    implementation "androidx.camera:camera-extensions:${camerax_version}"
+    
+    // OpenCV 4.x (updated version for compatibility)
+    implementation 'org.opencv:opencv:4.12.0'
 }
