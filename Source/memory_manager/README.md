@@ -82,6 +82,7 @@ memory_manager = MemoryManager(
 
 ## 集成到Roo工作流
 
+### 方案一：手动集成
 要将此模块集成到Roo的自动工作流中，可以在`attempt_completion`调用前添加以下代码：
 
 ```python
@@ -95,12 +96,29 @@ def complete_task_with_memory(task_title, task_content, completed_work, key_achi
     attempt_completion(result="任务完成")
 ```
 
+### 方案二：使用包装器函数（推荐）
+我们提供了预构建的包装器函数，可以直接使用：
+
+```python
+from Source.memory_manager import roo_attempt_completion_with_memory
+
+# 使用包装器函数
+roo_attempt_completion_with_memory(
+    task_title="示例任务",
+    task_content="这是一个示例任务",
+    completed_work=["完成了工作1", "完成了工作2"],
+    key_achievements="成功实现了示例功能",
+    result="任务完成"
+)
+```
+
 ## 注意事项
 
 1. **文件路径**: 默认情况下，模块会在当前工作目录下查找或创建`memory.md`文件
 2. **记录数量**: 默认保留50个最近的记录，可以根据需要调整
 3. **格式兼容性**: 模块会自动处理现有的`memory.md`文件格式，确保兼容性
 4. **错误处理**: 模块包含基本的错误处理，如文件不存在等情况
+5. **Roo集成限制**: 由于Roo的核心逻辑可能在外部系统中运行，实际的集成方式可能需要根据具体的Roo API进行调整。包装器函数提供了一个通用的集成模式，可以根据实际需求进行修改。
 
 ## 版本信息
 
