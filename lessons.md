@@ -142,3 +142,15 @@ Source/react-native-live-detect-edges (已删除)
 3. 在每次任务结束时，必须立即更新 memory.md 文件，记录任务总结
 4. 建立任务完成检查清单，包括更新 memory.md 和 lessons.md
 5. 对于 npm 安装的库，应直接使用 npm install 而不是手动克隆
+
+## 错误描述
+在集成 react-native-live-detect-edges 库时，没有充分考虑 React Native 新旧架构（Paper vs Fabric）的兼容性问题，导致构建失败。
+
+## 错误原因
+react-native-live-detect-edges@0.3.1 使用了 Fabric 架构（React Native 0.83+），而主项目使用的是 React Native 0.73.0（Paper 架构），两者存在架构不兼容问题。
+
+## 改进措施
+1. 在选择第三方库时，必须检查其 React Native 版本兼容性
+2. 优先选择支持 Paper 架构或同时支持两种架构的库
+3. 在集成新库前，先在小型测试项目中验证兼容性
+4. 建立版本兼容性检查清单，在项目开始时就验证所有依赖的兼容性

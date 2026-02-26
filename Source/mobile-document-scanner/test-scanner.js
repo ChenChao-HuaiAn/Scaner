@@ -59,7 +59,7 @@ const DocumentPreview = require('./src/components/DocumentPreview').default;
 // 验证依赖配置
 console.log('=== 验证依赖配置 ===');
 const packageJson = require('./package.json');
-console.log('react-native-document-scanner版本:', packageJson.dependencies['react-native-document-scanner']);
+console.log('react-native-live-detect-edges版本:', packageJson.dependencies['react-native-live-detect-edges']);
 
 // 验证Android配置
 console.log('=== 验证Android配置 ===');

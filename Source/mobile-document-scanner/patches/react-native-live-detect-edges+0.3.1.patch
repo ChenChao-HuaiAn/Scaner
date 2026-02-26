@@ -1,0 +1,21 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index 1234567..89abcdef 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -21,7 +21,6 @@ apply plugin: "com.android.library"
+ apply plugin: "kotlin-android"
+ apply plugin: "de.undercouch.download"
+ 
+-apply plugin: "com.facebook.react"
+ 
+ // Import DownloadModels task
+ project.ext.set("ASSET_DIR", "$projectDir/src/main/assets")
+@@ -34,7 +33,7 @@ def getExtOrIntegerDefault(name) {
+ android {
+   namespace "com.livedetectedges"
+ 
+-  compileSdkVersion getExtOrIntegerDefault("compileSdkVersion")
++  compileSdkVersion rootProject.ext.compileSdkVersion
+ 
+   defaultConfig {
+     minSdkVersion getExtOrIntegerDefault("minSdkVersion")
