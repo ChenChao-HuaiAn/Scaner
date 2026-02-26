@@ -6,12 +6,22 @@
 
 ### 2. 打开项目
 - 选择 `File` -> `Open`
-- 导航到 `Source/mobile-document-scanner/android` 目录
+- **重要**：导航到 `Source/mobile-document-scanner/android` 目录（不是整个项目目录）
 - 点击 `OK` 打开项目
 
 ### 3. 等待 Gradle 同步
 - Android Studio 会自动同步 Gradle 项目
 - 等待底部状态栏显示"Gradle sync finished"
+- **如果同步失败**：
+  - 检查网络连接
+  - 选择 `File` -> `Invalidate Caches / Restart`
+  - 确保已安装 Android SDK
+
+### 4. 解决 Build 菜单灰色问题
+如果 Build 菜单中的选项是灰色的：
+- 确保 Gradle 同步已完成（底部状态栏无错误提示）
+- 尝试 `File` -> `Sync Project with Gradle Files`
+- 如果仍然灰色，关闭 Android Studio 并删除 `.idea` 目录后重新打开
 
 ## 生成调试 APK（快速测试）
 
