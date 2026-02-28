@@ -17,4 +17,16 @@ trigger: always_on
 
 6. 推送的远程仓库，就要gitcode和github一起推送。
 
+7. **任务完成前自动记录**：任务完成前，自动触发".roo/skills/memory-record/SKILL.md"技能，将工作进展记录到memory.md文件中。
+
+8. **错误自动记录**：当AI执行命令或工具调用出现错误时，自动触发".roo/skills/ai-error-record/SKILL.md"技能，将错误情况记录到lessons.md文件中。
+
+9. **AI 自我监控要求**：AI 必须在每次工具调用后：
+   - 检查结果：确认工具调用是否成功
+   - 识别错误：当检测到错误时，分析错误类型、描述、原因
+   - 主动记录：调用 ai-error-record 技能记录错误
+   - 诚实报告：不得在未完成任务时声称"任务完成"
+
+10. **错误检查清单**：AI 必须遵守 `.roo/checklists/error-checklist.md` 中的错误检查清单，每次工具调用后执行检查。
+
 这些操作应在每次代码提交到develop分支前完成，确保项目文档与代码变更保持同步。
